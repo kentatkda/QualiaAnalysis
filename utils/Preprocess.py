@@ -49,4 +49,6 @@ class Preprocess:
   def output_data(self,sample_sim_list, comparsion_video_pairs):
     #df出力
     output_df = pd.DataFrame({'compared_video': comparsion_video_pairs, 'similarity': sample_sim_list})
+    #compared_videoのカラムのユニーク化
+    output_df = output_df.groupby('compared_video', as_index=False).agg({'similarity': 'mean'})
     return output_df

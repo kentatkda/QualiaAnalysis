@@ -1,25 +1,8 @@
-from run import run
-import os
-import glob
+from research_nonal import run_nonal_all
+from research_nonal_al import run_nonal_al_all
 
 if __name__ == "__main__":
-  non_al_folder_path = './qualia_rawdata/single_subject/non_alcohol/'
-  al_folder_path = './qualia_rawdata/single_subject/alcohol/'
-  # qualia_color = {
-  #   'sadness': 'blue',
-  #   'romance': 'pink',
-  #   'awe': 'green',
-  #   'aesthetic_appreciation': 'yellow',
-  #   'amusement': 'brown',
-  #   'guilt': 'black',
-  #   'surprise': 'gray',
-  #   'fear': 'violet',
-  #   'anger': 'red',
-  #   'empatic_pain': 'orange',
-  #   'envy': 'purple',
-  #   'joy': 'cyan'
-  # }
-
+  mode='only_nonal'
   qualia_color = {
     'guilt': 'black',
     'empatic_pain': 'orange',
@@ -33,29 +16,22 @@ if __name__ == "__main__":
     'romance': 'pink',
     'aesthetic_appreciation': 'yellow',
     'awe': 'green',
-}
+  }
 
-  # qualia_color = {
-  #   'sadness': 'blue',
-  #   'romance': 'blue',
-  #   'awe': 'green',
-  #   'aesthetic_appreciation': 'yellow',
-  #   'amusement': 'green',
-  #   'guilt': 'red',
-  #   'surprise': 'red',
-  #   'fear': 'yellow',
-  #   'anger': 'red',
-  #   'empatic_pain': 'red',
-  #   'envy': 'purple',
-  #   'joy': 'blue'
-  # }
-
-  run(
-    non_al_folder_path=non_al_folder_path,
-    al_folder_path=al_folder_path,
-    plot_dim=2,
-    generate_syn=False,
-    qualia_color=qualia_color,
-    max_iter=500,
-    comparing_pairs=('non_al', 'al')
-  )
+  if mode=='only_nonal':
+    folder_path='./qualia_rawdata/non_alcohol/'
+    original_embeddings, all_embeddings = run_nonal_all(
+      folder_path=folder_path,
+      qualia_color=qualia_color,
+      iter_num=2,
+      n_clusters=3
+    )
+  elif mode=='nonal_and_al':
+    non_al_folder_path = './qualia_rawdata/non_alcohol/'
+    al_folder_path = './qualia_rawdata/alcohol/'
+    all_original_embeddings, all_embeddings, distances_df = run_nonal_al_all(
+      non_al_folder_path=non_al_folder_path,
+      al_folder_path=al_folder_path,
+      iter_num=4,
+      qualia_color=qualia_color
+    )

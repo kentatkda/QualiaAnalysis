@@ -21,3 +21,8 @@ def extract_paths(al_folder_path:str, non_al_folder_path:str, comparing_pairs:tu
         print(f'this comparing_pairs: {comparing_pairs} is not valid.')
 
     return first_qualia_paths, second_qualia_paths
+
+
+def extract_paths_from_one_folder(folder_path:str):
+    paths = glob.glob(os.path.join(folder_path, '*.csv'))
+    return paths
