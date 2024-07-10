@@ -11,7 +11,7 @@ class Cluster:
     """
 
     def __init__(self, all_embeddings, qualia_color:dict):
-        #self.all_embeddings = (9, 12, 2)
+        #self.all_embeddings = (9, 12, 2) or (9, 12, 3)
         self.all_embeddings = np.array(list(all_embeddings.values()))
         self.data_n = len(self.all_embeddings)
         self.qualia_color = qualia_color
