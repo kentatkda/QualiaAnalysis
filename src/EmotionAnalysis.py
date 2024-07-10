@@ -1,8 +1,7 @@
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
-from runs.run1 import run1, run1_preprocess, run1_calculate_dissimilarity
-from runs.run2 import run_nonal_all
+from runs.run1 import run1_preprocess, run1_calculate_dissimilarity
 from src.extract_paths import extract_paths_from_2paths
 from src.GWOptimalTransfer import GWOptimalTransfer
 from src.CalculateDissimilarity import CalculateDissimilarity

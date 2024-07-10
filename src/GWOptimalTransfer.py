@@ -14,7 +14,7 @@ class GWOptimalTransfer:
         self.emotions = emotions
 
 
-    def gw_optimization(self, D1, D2, iter_num, epsilon=0.1):
+    def gw_optimization(self, D1, D2, iter_num, epsilon=0.2):
         p, q = ot.unif(D1.shape[0]), ot.unif(D2.shape[0])
         # print(f'D1, D2: {D1.shape, D2.shape}')
 
