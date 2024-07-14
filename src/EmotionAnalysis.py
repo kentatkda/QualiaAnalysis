@@ -160,7 +160,6 @@ class EmotionAnalysis:
         for cluster, emotions_ in cluster_emotions.items():
             print(f"Cluster {cluster}: {emotions_}")
 
-        np.array(mapped_mean_embeddings).shape
         #感情間の距離の表示
         embeddings_diff = mapped_mean_embeddings[0] - mapped_mean_embeddings[1]
         distances = [(diff[0]**2 + diff[1]**2)**0.5 for diff in embeddings_diff]

@@ -15,15 +15,14 @@ Human emotions are complex and multifaceted, making it extremely challenging to 
 
 - Figs: here are stored graph results obtained from the experiment.
 
--runs: here are stored running functions and each are corresponded to the mode, which is defined in main.py.
+- runs: here are stored running functions and each are corresponded to the mode, which is defined in main.py.
+
+- save_datas: here are stored essential datas driven from research_for_3D_embeddings.ipynb or test_0708.ipynb
 
 - main.py: in this file, execute run.py, giving the fundamental params.
 
 ## To start
-1.
-enter the vertual environment
-or
-pip install -r requirements.txt
+1. enter the vertual environment or pip install -r requirements.txt
 
-2.run main.py
+2. run main.py
 
